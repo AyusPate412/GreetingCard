@@ -38,6 +38,7 @@
             this.Name = "Greetings";
             this.Text = "Merry Christmas";
             this.Shown += new System.EventHandler(this.Greetings_Shown);
+            this.Click += new System.EventHandler(this.Greetings_Click);
             this.ResumeLayout(false);
 
         }
