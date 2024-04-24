@@ -9,20 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 
+//24 April, 2024
+//Greeting Card
+//Ayush Patel
 namespace GreetingCard
 {
     public partial class Greetings : Form
     {
-        Pen redPen = new Pen(Color.Red, 6);
-        Pen bluePen = new Pen(Color.Blue, 6);
         Pen pinkPen = new Pen(Color.Pink, 1);
         Pen blackPen = new Pen(Color.Black, 1);
 
-        SolidBrush blackBrush = new SolidBrush(Color.Black);
-        SolidBrush redBrush = new SolidBrush(Color.MediumVioletRed);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
         SolidBrush pinkBrush = new SolidBrush(Color.LightPink);
-        SolidBrush goldBrush = new SolidBrush(Color.Gold);
 
         Font drawFont = new Font("Arial", 42, FontStyle.Bold);
 
@@ -37,8 +35,6 @@ namespace GreetingCard
 
             //Set background Color
             g.Clear(Color.LightBlue);
-
-
 
             //Writes Happy Diwali
             g.DrawString("Happy", drawFont, blueBrush, 315, 100);
@@ -62,11 +58,16 @@ namespace GreetingCard
                 g.DrawLine(blackPen, 30 + i * 50, 350, 80, 400);
             }
 
+            for (int i = 0; i < 3; i++)
+            {
+                g.DrawEllipse(pinkPen, 200 + i * 50, 300, 30, 50);
+                g.FillEllipse(pinkBrush, 200 + i * 50, 300, 30, 50);
+                g.DrawLine(blackPen, 200 + i * 50, 350, 280, 400);
+            }
         }
 
         private void Greetings_Click(object sender, EventArgs e)
         {
-
             Graphics g = this.CreateGraphics();
 
             Random rand = new Random();
@@ -97,10 +98,17 @@ namespace GreetingCard
                 }
                 Thread.Sleep(10);
                 y--;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    g.DrawEllipse(pinkPen, 15 + i * 50, y, 30, 50);
+                    g.FillEllipse(pinkBrush, 15 + i * 50, y, 30, 50);
+                    g.DrawLine(blackPen, 30 + i * 50, y + 50, 80, y + 120);
+                }
+                Thread.Sleep(10);
+                y--;
+
             }
-
-
-            
         }
     }
 }
