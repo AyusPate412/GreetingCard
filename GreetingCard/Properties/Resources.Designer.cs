@@ -63,18 +63,18 @@ namespace GreetingCard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream blacksmithWorkshop {
+        internal static System.IO.UnmanagedMemoryStream dhol {
             get {
-                return ResourceManager.GetStream("blacksmithWorkshop", resourceCulture);
+                return ResourceManager.GetStream("dhol", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream dhol {
+        internal static System.IO.UnmanagedMemoryStream fireworks {
             get {
-                return ResourceManager.GetStream("dhol", resourceCulture);
+                return ResourceManager.GetStream("fireworks", resourceCulture);
             }
         }
     }

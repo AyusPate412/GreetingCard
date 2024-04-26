@@ -86,5 +86,8 @@
   <ItemGroup>
     <None Include="Resources\dhol.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-year-fireworks-sound4-180205.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

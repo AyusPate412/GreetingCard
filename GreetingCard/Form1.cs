@@ -24,12 +24,12 @@ namespace GreetingCard
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
         // sets up the font, size and style
-        Font drawFont = new Font("Times New Roman", 42, FontStyle.Bold);
-        Font drawFont2 = new Font("Times New Roman", 20, FontStyle.Bold);
+        Font drawFont = new Font("MV Boli", 42, FontStyle.Bold);
+        Font drawFont2 = new Font("MV Boli", 20, FontStyle.Bold);
 
         //setup a new sound
         new SoundPlayer celebration = new SoundPlayer(Properties.Resources.dhol);
-        new SoundPlayer blackSmith = new SoundPlayer(Properties.Resources.blacksmithWorkshop);
+        new SoundPlayer fireworks = new SoundPlayer(Properties.Resources.fireworks);
 
         public Greetings()
         {
@@ -89,13 +89,30 @@ namespace GreetingCard
             // creates random and creates a int flash
             Random rand = new Random();
             int flash = 0;
-
+            int angle = 0;
             //flashes the lights different color 5 times
             while (flash < 5) {
+
                 for (int i = 0; i < 27; i++)
                 {
                     Color randomColor = Color.FromArgb(rand.Next(255), rand.Next(256), rand.Next(256));
+
+                    g.DrawEllipse(whitePen, 10 + i * 30, 25, 10, 20);
                     g.FillEllipse(new SolidBrush(randomColor), 10 + i * 30, 25, 10, 20);
+                    g.DrawLine(whitePen, 0, 25, 1000, 25);
+
+                    //rotates happy diwali 
+                    while (angle < 361)
+                    {
+                        g.Clear(Color.Black);
+                        g.TranslateTransform(300, 150);
+                        g.RotateTransform(0 + angle);
+                        g.DrawString("Happy Diwali", drawFont, yellowBrush, -50, -50);
+                        g.ResetTransform();
+
+                        Thread.Sleep(200);
+                        angle = angle + 45;
+                    }
                 }
                 flash++;    
                 Thread.Sleep(1000);
@@ -103,9 +120,11 @@ namespace GreetingCard
             //ballon's y value
             int y = 300;
 
-            //while loop to move the ballon up 
+            //plays sounds 
             celebration.PlayLooping();
-            
+            fireworks.Play();
+
+            //while loop to move the ballon up 
             while (y > - 250)
             {
                 g.Clear(Color.Black);
@@ -132,10 +151,11 @@ namespace GreetingCard
                     g.DrawString("Ayush Patel", drawFont2, yellowBrush, 400 + 100, y + 200);
                 }
                 Thread.Sleep(1);
-                y--;
+                y = y - 4;
             }
+            //stops the sound effect
             celebration.Stop();
-
+            fireworks.Stop();
         }
     }
 }
