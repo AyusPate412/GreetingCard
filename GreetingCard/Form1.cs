@@ -37,8 +37,7 @@ namespace GreetingCard
         }
 
         private void Greetings_Shown(object sender, EventArgs e)
-        {
-            
+        { 
             Graphics g = this.CreateGraphics();
 
             //Set background Color
